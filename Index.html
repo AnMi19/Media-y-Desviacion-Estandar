@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora Estadística</title>
+    <link rel="stylesheet" href="Styles/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>🧮 Calculadora de Media y Desviación Estándar</h1>
+        <p>Ingresa tus números y calcula estadísticas básicas</p>
+      </header>
+
+      <main>
+        <!-- Paso 1: Configurar cantidad de números -->
+        <div class="step" id="step1">
+          <h2>Paso 1: Configuración</h2>
+          <div class="input-group">
+            <label for="cantidadInput">¿Cuántos números vas a ingresar?</label>
+            <input
+              type="number"
+              id="cantidadInput"
+              min="2"
+              max="50"
+              value="5"
+            />
+            <button onclick="inicializarArreglo()">Crear Arreglo</button>
+          </div>
+          <div id="configMensaje" class="mensaje"></div>
+        </div>
+
+        <!-- Paso 2: Ingresar números -->
+        <div class="step" id="step2" style="display: none">
+          <h2>Paso 2: Ingresar Números</h2>
+
+          <div class="progreso-container">
+            <div id="progresoTexto" class="progreso-texto"></div>
+            <div class="barra-progreso">
+              <div id="barraProgreso" class="barra-progreso-fill"></div>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="numeroInput" id="labelNumero"
+              >Ingresa el número 1:</label
+            >
+            <input
+              type="number"
+              id="numeroInput"
+              step="any"
+              placeholder="Ej: 10.5"
+            />
+            <button onclick="agregarNumero()">Agregar Número</button>
+          </div>
+
+          <div class="numeros-lista">
+            <h3>Números ingresados:</h3>
+            <div id="listaNumeros" class="lista-numeros"></div>
+          </div>
+
+          <div id="numeroMensaje" class="mensaje"></div>
+        </div>
+
+        <!-- Paso 3: Resultados -->
+        <div class="step" id="step3" style="display: none">
+          <h2>Paso 3: Resultados</h2>
+
+          <div class="numeros-finales">
+            <h3>Tu conjunto de datos:</h3>
+            <div id="numerosFinales" class="lista-numeros"></div>
+          </div>
+
+          <button onclick="calcularEstadisticas()" class="btn-calcular">
+            📊 Calcular Media y Desviación Estándar
+          </button>
+
+          <div id="resultados" class="resultados">
+            <div class="resultado-card">
+              <div class="resultado-item">
+                <span class="label">Media Aritmética:</span>
+                <span id="resultadoMedia" class="valor">-</span>
+              </div>
+              <div class="resultado-item">
+                <span class="label">Desviación Estándar:</span>
+                <span id="resultadoDesviacion" class="valor">-</span>
+              </div>
+              <div class="resultado-item">
+                <span class="label">Total de Números:</span>
+                <span id="resultadoTotal" class="valor">-</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="acciones">
+            <button onclick="reiniciarCalculadora()" class="btn-reiniciar">
+              🔄 Realizar nuevo cálculo
+            </button>
+          </div>
+        </div>
+      </main>
+
+      <footer>
+        <p>
+          Calculadora Estadística - Desarrollado con HTML, CSS y JavaScript puro
+        </p>
+      </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
